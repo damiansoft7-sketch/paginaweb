@@ -181,7 +181,7 @@ body::before {
    ============================================ */
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   width: 100%;
   margin-bottom: 2rem;
@@ -503,4 +503,5 @@ body::before {
 @media (max-width: 420px) {
   .name { font-size: 2.4rem; }
   .wrap { padding: 2rem 1rem 3rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
 }
