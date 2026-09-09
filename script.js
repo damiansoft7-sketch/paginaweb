@@ -10,6 +10,7 @@ const STATS = {
   youtube:  0,    // ← pon aquí tus suscriptores de YouTube  (ej: 1500)
   tiktok:   0,    // ← pon aquí tus seguidores de TikTok     (ej: 3200)
   instagram: 0,   // ← pon aquí tus seguidores de Instagram  (ej: 800)
+  facebook: 0,    // ← pon aquí tus seguidores de Facebook   (ej: 500)
 };
 
 /* ── DISCORD ───────────────────────────────
@@ -71,10 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const ytEl = document.getElementById('yt-subs');
   const ttEl = document.getElementById('tt-followers');
   const igEl = document.getElementById('ig-followers');
+  const fbEl = document.getElementById('fb-followers');
 
   if (ytEl) animateCount(ytEl, STATS.youtube);
   if (ttEl) animateCount(ttEl, STATS.tiktok);
   if (igEl) animateCount(igEl, STATS.instagram);
+  if (fbEl) animateCount(fbEl, STATS.facebook);
 
   // Discord
   setupDiscord();
