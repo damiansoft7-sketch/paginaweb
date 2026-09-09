@@ -7,10 +7,10 @@
    Cuando tengas los datos exactos, cámbialos aquí.
    ─────────────────────────────────────────── */
 const STATS = {
-  youtube:  0,    // ← pon aquí tus suscriptores de YouTube  (ej: 1500)
-  tiktok:   0,    // ← pon aquí tus seguidores de TikTok     (ej: 3200)
-  instagram: 0,   // ← pon aquí tus seguidores de Instagram  (ej: 800)
-  facebook: 0,    // ← pon aquí tus seguidores de Facebook   (ej: 500)
+  youtube:  53.7k,    // ← pon aquí tus suscriptores de YouTube  (ej: 1500)
+  tiktok:   12.2k,    // ← pon aquí tus seguidores de TikTok     (ej: 3200)
+  instagram: 4.1k,   // ← pon aquí tus seguidores de Instagram  (ej: 800)
+  facebook: 44k,    // ← pon aquí tus seguidores de Facebook   (ej: 500)
 };
 
 /* ── DISCORD ───────────────────────────────
