@@ -65,55 +65,56 @@
 }
 
 /* ============================================
-   GABINETE — marco dorado tipo tragamonedas
+   GABINETE — rojo/naranja de marca + palanca
    ============================================ */
 .cabinet {
   width: 100%;
-  background: linear-gradient(160deg, #3D2817 0%, #1A0F08 60%, #120A05 100%);
+  display: flex;
+  gap: 10px;
+  position: relative;
+  background: linear-gradient(160deg, var(--red) 0%, #8F1B1B 55%, #4A0F0F 100%);
   border-radius: 22px;
   padding: 14px;
   margin-bottom: 1.5rem;
-  box-shadow: inset 0 0 0 3px #12090433, 0 10px 24px #00000060;
+  box-shadow: inset 0 0 0 3px #00000022, 0 10px 24px #00000060;
   animation: fadeIn 0.6s ease 0.2s both;
 }
 
-/* ── Marquesina superior ── */
-.marquee {
-  background: linear-gradient(135deg, #F4C430, #D4AF37 45%, #8B6914 100%);
-  border-radius: 16px 16px 4px 4px;
-  padding: 10px 12px 14px;
-  text-align: center;
-  box-shadow: inset 0 -3px 0 #6B4F0F, inset 0 2px 0 #FFE9A0;
-}
-.marquee-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.1rem;
-  letter-spacing: 0.06em;
-  color: #7A0E0E;
-  text-shadow: 0 1px 0 #FFE9A0, 0 -1px 0 #4A0000;
-  margin-top: 4px;
+.cabinet-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* ── Foquitos (marquesina y placa) ── */
-.lights {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 4px;
+/* ── Monedas decorativas ── */
+.coins {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
-.lights span {
-  width: 7px;
-  height: 7px;
+.coin {
+  position: absolute;
   border-radius: 50%;
-  background: #FFE9A0;
-  box-shadow: 0 0 4px 1px #FFD70090;
-  animation: blink 1.2s ease-in-out infinite;
+  background: radial-gradient(circle at 35% 32%, #FFF3C4, #F4C430 55%, #8B6914);
+  box-shadow: 0 2px 5px #00000060;
 }
-.lights span:nth-child(even) {
-  animation-delay: 0.6s;
+
+/* ── Pantalla digital ── */
+.screen {
+  background: #0A0605;
+  border-radius: 14px 14px 4px 4px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: inset 0 0 12px #00000090, inset 0 0 0 2px var(--orange);
 }
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.25; box-shadow: none; }
+.screen-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  color: var(--orange);
+  text-shadow: 0 0 8px var(--orange), 0 0 18px #F7790080;
 }
 
 /* ── Panel de carretes (hundido dentro del gabinete) ── */
@@ -121,7 +122,6 @@
   background: #0A0605;
   border-radius: 6px;
   padding: 10px;
-  margin: 10px 0;
   box-shadow: inset 0 4px 10px #00000090;
 }
 
@@ -139,7 +139,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px solid #D4AF3733;
+  border: 1px solid #F7790033;
 }
 
 .reel-symbol {
@@ -164,46 +164,63 @@
 }
 
 /* ── Placa inferior ── */
-.base-plaque {
-  background: linear-gradient(135deg, #F4C430, #D4AF37 45%, #8B6914 100%);
-  border-radius: 4px 4px 16px 16px;
-  padding: 10px 12px;
+.plate {
+  background: #0A0605;
+  border-radius: 4px 4px 14px 14px;
+  padding: 8px 12px;
   text-align: center;
-  box-shadow: inset 0 3px 0 #FFE9A0, inset 0 -2px 0 #6B4F0F;
+  box-shadow: inset 0 0 0 2px var(--orange);
 }
-.plaque-text {
+.plate-text {
   display: block;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 0.1em;
-  color: #7A0E0E;
-  text-shadow: 0 1px 0 #FFE9A0;
-  margin-top: 4px;
+  color: var(--orange);
 }
 
-/* ============================================
-   PALANCA Y MENSAJES
-   ============================================ */
-.spin-btn {
-  background: linear-gradient(90deg, var(--red), var(--orange));
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 12px 32px;
+/* ── Palanca lateral ── */
+.lever-btn {
+  flex-shrink: 0;
+  width: 32px;
+  background: transparent;
   border: none;
-  border-radius: 10px;
+  padding: 0;
   cursor: pointer;
-  transition: transform 0.15s, opacity 0.2s;
+  position: relative;
 }
-.spin-btn:hover:not(:disabled) {
-  transform: translateY(-1px);
-}
-.spin-btn:disabled {
+.lever-btn:disabled {
   opacity: 0.35;
   cursor: not-allowed;
 }
+.lever-track {
+  display: block;
+  width: 8px;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #6B6B6B, #1A1A1A 70%, #000);
+  box-shadow: inset 0 0 3px #00000090;
+}
+.lever-knob {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFE9A0, #D4AF37 55%, #7A5A0E);
+  box-shadow: 0 3px 6px #00000070;
+  transition: top 0.25s ease;
+}
+.lever-btn.pulled .lever-knob {
+  top: calc(100% - 28px);
+}
 
+/* ============================================
+   MENSAJES
+   ============================================ */
 .lock-msg {
   width: 100%;
   text-align: center;
