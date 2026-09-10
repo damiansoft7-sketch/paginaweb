@@ -49,28 +49,44 @@
   </section>
 
   <!-- ══════════════════════════════════════
-       MÁQUINA — 5 carretes + palanca
-       Bloqueada hasta que el ID sea válido
+       GABINETE — marquesina + 5 carretes + placa
+       Bloqueado hasta que el ID sea válido
        ══════════════════════════════════════ -->
-  <section class="machine" id="machine">
+  <section class="cabinet" id="machine">
 
-    <div class="reels" id="reels">
-      <div class="reel-window"><div class="reel-symbol" data-reel="0">🍒</div></div>
-      <div class="reel-window"><div class="reel-symbol" data-reel="1">🍋</div></div>
-      <div class="reel-window"><div class="reel-symbol" data-reel="2">🔔</div></div>
-      <div class="reel-window"><div class="reel-symbol" data-reel="3">💎</div></div>
-      <div class="reel-window"><div class="reel-symbol" data-reel="4">7️⃣</div></div>
+    <div class="marquee">
+      <div class="lights lights-top">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <h1 class="marquee-title">Jackpot</h1>
     </div>
 
-    <button class="spin-btn" id="spin-btn" disabled>
-      Girar
-    </button>
+    <div class="reels-frame">
+      <div class="reels" id="reels">
+        <div class="reel-window"><img class="reel-symbol" data-reel="0" src="diamantes.jpg" alt=""></div>
+        <div class="reel-window"><img class="reel-symbol" data-reel="1" src="fragmento_evo.jpg" alt=""></div>
+        <div class="reel-window"><img class="reel-symbol" data-reel="2" src="booyah_pass.jpg" alt=""></div>
+        <div class="reel-window"><img class="reel-symbol" data-reel="3" src="sakura.jpg" alt=""></div>
+        <div class="reel-window"><img class="reel-symbol" data-reel="4" src="sigue_intentando.jpg" alt=""></div>
+      </div>
+    </div>
 
-    <p class="lock-msg" id="lock-msg">Ingresa un ID válido para desbloquear la palanca</p>
-
-    <p class="result-msg" id="result-msg"></p>
+    <div class="base-plaque">
+      <div class="lights lights-bottom">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <span class="plaque-text">Toy Asao</span>
+    </div>
 
   </section>
+
+  <button class="spin-btn" id="spin-btn" disabled>Girar</button>
+
+  <p class="lock-msg" id="lock-msg">Ingresa un ID válido para desbloquear la palanca</p>
+
+  <p class="result-msg" id="result-msg"></p>
 
 </main>
 
