@@ -65,46 +65,93 @@
 }
 
 /* ============================================
-   MÁQUINA / CARRETES
+   GABINETE — marco dorado tipo tragamonedas
    ============================================ */
-.machine {
+.cabinet {
   width: 100%;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  margin-bottom: 2rem;
+  background: linear-gradient(160deg, #3D2817 0%, #1A0F08 60%, #120A05 100%);
+  border-radius: 22px;
+  padding: 14px;
+  margin-bottom: 1.5rem;
+  box-shadow: inset 0 0 0 3px #12090433, 0 10px 24px #00000060;
   animation: fadeIn 0.6s ease 0.2s both;
+}
+
+/* ── Marquesina superior ── */
+.marquee {
+  background: linear-gradient(135deg, #F4C430, #D4AF37 45%, #8B6914 100%);
+  border-radius: 16px 16px 4px 4px;
+  padding: 10px 12px 14px;
+  text-align: center;
+  box-shadow: inset 0 -3px 0 #6B4F0F, inset 0 2px 0 #FFE9A0;
+}
+.marquee-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.1rem;
+  letter-spacing: 0.06em;
+  color: #7A0E0E;
+  text-shadow: 0 1px 0 #FFE9A0, 0 -1px 0 #4A0000;
+  margin-top: 4px;
+}
+
+/* ── Foquitos (marquesina y placa) ── */
+.lights {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+.lights span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FFE9A0;
+  box-shadow: 0 0 4px 1px #FFD70090;
+  animation: blink 1.2s ease-in-out infinite;
+}
+.lights span:nth-child(even) {
+  animation-delay: 0.6s;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.25; box-shadow: none; }
+}
+
+/* ── Panel de carretes (hundido dentro del gabinete) ── */
+.reels-frame {
+  background: #0A0605;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: inset 0 4px 10px #00000090;
 }
 
 .reels {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
-  margin-bottom: 1.25rem;
+  gap: 4px;
 }
 
 .reel-window {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  height: 64px;
+  background: #050302;
+  border-radius: 6px;
+  height: 62px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border: 1px solid #D4AF3733;
 }
 
 .reel-symbol {
-  font-size: 1.8rem;
-  line-height: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.15s ease;
 }
 
 /* Efecto visual mientras gira */
 .reel-window.spinning .reel-symbol {
-  filter: blur(1.5px);
+  filter: blur(2px);
 }
 
 /* Pequeño rebote cuando un carrete se detiene */
@@ -116,6 +163,27 @@
   100% { transform: scale(1); }
 }
 
+/* ── Placa inferior ── */
+.base-plaque {
+  background: linear-gradient(135deg, #F4C430, #D4AF37 45%, #8B6914 100%);
+  border-radius: 4px 4px 16px 16px;
+  padding: 10px 12px;
+  text-align: center;
+  box-shadow: inset 0 3px 0 #FFE9A0, inset 0 -2px 0 #6B4F0F;
+}
+.plaque-text {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #7A0E0E;
+  text-shadow: 0 1px 0 #FFE9A0;
+  margin-top: 4px;
+}
+
+/* ============================================
+   PALANCA Y MENSAJES
+   ============================================ */
 .spin-btn {
   background: linear-gradient(90deg, var(--red), var(--orange));
   color: #fff;
@@ -137,6 +205,8 @@
 }
 
 .lock-msg {
+  width: 100%;
+  text-align: center;
   font-size: 12px;
   color: var(--text-muted);
   margin-top: 0.75rem;
@@ -146,6 +216,8 @@
 }
 
 .result-msg {
+  width: 100%;
+  text-align: center;
   font-size: 14px;
   font-weight: 600;
   color: var(--text);
