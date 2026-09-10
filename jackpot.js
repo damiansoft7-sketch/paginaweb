@@ -8,8 +8,16 @@
 /* ── SÍMBOLOS ──────────────────────────────
    Agrega o quita símbolos aquí. Cada carrete
    elige uno al azar de esta misma lista.
+   Deben ser archivos de imagen subidos junto
+   a jackpot.html (mismo tamaño, cuadrados).
    ─────────────────────────────────────────── */
-const SYMBOLS = ['🍒', '🍋', '🔔', '💎', '7️⃣', '⭐'];
+const SYMBOLS = [
+  'diamantes.jpg',
+  'fragmento_evo.jpg',
+  'booyah_pass.jpg',
+  'sakura.jpg',
+  'sigue_intentando.jpg',
+];
 
 const REEL_COUNT = 5;
 
@@ -85,7 +93,7 @@ function setupJackpot() {
       win.classList.remove('stopped');
 
       intervals[i] = setInterval(() => {
-        symbols[i].textContent = randomSymbol();
+        symbols[i].src = randomSymbol();
       }, SPIN_INTERVAL);
     });
 
@@ -95,7 +103,7 @@ function setupJackpot() {
         clearInterval(intervals[i]);
 
         const landed = randomSymbol(); // ← por ahora random; aquí decidiremos el resultado real
-        symbols[i].textContent = landed;
+        symbols[i].src = landed;
         finalResult[i] = landed;
 
         windows[i].classList.remove('spinning');
@@ -121,8 +129,10 @@ function setupJackpot() {
    ============================================ */
 function checkResult(finalResult) {
   const resultMsg = document.getElementById('result-msg');
-  resultMsg.textContent = finalResult.join(' ');
-  // TODO: definir reglas de premio y mostrar el resultado real
+  // Por ahora solo mostramos que terminó de girar.
+  // finalResult trae las 5 rutas de imagen que quedaron en pantalla,
+  // aquí compararemos ese arreglo para decidir el premio real.
+  resultMsg.textContent = '¡Giro completado!';
 }
 
 
