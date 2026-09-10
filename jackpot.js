@@ -84,6 +84,10 @@ function setupJackpot() {
     spinBtn.disabled = true;
     resultMsg.textContent = '';
 
+    // Animación de la palanca: baja y vuelve a subir
+    spinBtn.classList.add('pulled');
+    setTimeout(() => spinBtn.classList.remove('pulled'), 300);
+
     const intervals   = [];
     const finalResult = [];
 
